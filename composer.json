@@ -1,0 +1,19 @@
+{
+  "name"       : "fouroneone/Translation",
+  "description": "Support multi-lingual in YOUR application! :D",
+  "authors"    : [
+    {
+      "name" : "Matthew Baggett",
+      "email": "matthew@fouroneone.us"
+    }
+  ],
+  "require"    : {
+    "fouroneone/activerecord": "dev-composer-compatable"
+  },
+  "autoload"   : {
+    "psr-0": {
+      "FourOneOne\\Translation\\": ""
+    }
+  },
+  "target-dir" : "FourOneOne/Translation"
+}

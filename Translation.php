@@ -12,11 +12,18 @@ class Translation
         return self::$instance;
     }
 
-    public function translate($string){
+    public function translate($string, $replacements = array()){
+
+        // Swap in the variables
+        foreach($replacements as $key => $value){
+            $string = str_replace($key, $value, $string);
+        }
+
+        // Return translated contents.
         return $string;
     }
 }
 
-function t($string){
-    return Translation::getInstance()->translate($string);
+function t($string, $replacements = array()){
+    return Translation::getInstance()->translate($string, $replacements);
 }

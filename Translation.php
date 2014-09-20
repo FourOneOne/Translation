@@ -1,5 +1,5 @@
 <?php
-namespace FourOneOne\Translation;
+namespace Thru\Translation;
 
 class Translation
 {

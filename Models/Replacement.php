@@ -1,6 +1,6 @@
 <?php
-namespace FourOneOne\Translation\Models;
+namespace Thru\Translation\Models;
 
-class translation_replacement_model extends \FourOneOne\ActiveRecord\ActiveRecord{
+class translation_replacement_model extends \Thru\ActiveRecord\ActiveRecord{
     protected $_table = "translation_replacements";
 }

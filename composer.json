@@ -4,7 +4,7 @@
   "authors"    : [
     {
       "name" : "Matthew Baggett",
-      "email": "matthew@fouroneone.us"
+      "email": "matthew@Thru.us"
     }
   ],
   "require"    : {
@@ -12,7 +12,7 @@
   },
   "autoload"   : {
     "psr-0": {
-      "FourOneOne\\Translation\\": ""
+      "Thru\\Translation\\": ""
     }
   }
 }

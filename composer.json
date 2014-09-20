@@ -1,5 +1,5 @@
 {
-  "name"       : "fouroneone/translation",
+  "name"       : "thru.io/translation",
   "description": "Support multi-lingual in YOUR application! :D",
   "authors"    : [
     {
@@ -8,12 +8,11 @@
     }
   ],
   "require"    : {
-    "fouroneone/activerecord": "dev-composer-compatable"
+    "thru.io/active_record": "dev-master"
   },
   "autoload"   : {
     "psr-0": {
       "FourOneOne\\Translation\\": ""
     }
-  },
-  "target-dir" : "FourOneOne/Translation"
+  }
 }

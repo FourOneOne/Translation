@@ -101,7 +101,6 @@ class Translation
         $tr->setSource($trans_command['in']);
         $tr->setTarget($trans_command['out']);
         $langauges = Language::search()->exec();
-        var_dump($langauges);
         $untranslated_phrases = PhraseReplacement::search()->where('is_translated', 'No')->exec();
         foreach($untranslated_phrases as $i => $phrase){
             /* @var $phrase PhraseReplacement */

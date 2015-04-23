@@ -78,6 +78,21 @@ class Translation
         // Return translated contents.
         return $string;
     }
+
+    static public function FetchFromGoogle($to, $from){
+        $trans_command = new Command();
+        $trans_command->option('i')
+            ->aka('in')
+            ->describedAs("Input Language")
+            ->required()
+            ->default("en-gb");
+        $trans_command->option('o')
+            ->aka('out')
+            ->describedAs("Output Language")
+            ->required();
+
+        echo "Translate from {$trans_command['in']} to {$trans_command['out']}\n";
+    }
 }
 
 function t($string, $replacements = array()){

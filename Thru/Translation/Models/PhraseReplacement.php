@@ -10,7 +10,7 @@ use \Thru\ActiveRecord\ActiveRecord;
  * @var $language_id INTEGER
  * @var $value TEXT
  * @var $created_at DATETIME
- * @var $is_translated ENUM("Yes","No");
+ * @var $is_translated ENUM('Yes','No')
  */
 class PhraseReplacement extends ActiveRecord{
     protected $_table = "translation_replacements";

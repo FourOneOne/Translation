@@ -1,9 +1,14 @@
 <?php
 namespace Thru\Translation;
 
+use Commando\Command;
+use Stichoza\GoogleTranslate\TranslateClient;
 use Thru\Translation\Models\Language as translation_language_model;
+use Thru\Translation\Models\Language;
 use Thru\Translation\Models\PhraseOriginal as translation_original_model;
+use Thru\Translation\Models\PhraseOriginal;
 use Thru\Translation\Models\PhraseReplacement as translation_replacement_model;
+use Thru\Translation\Models\PhraseReplacement;
 
 class Translation
 {
@@ -79,19 +84,37 @@ class Translation
         return $string;
     }
 
-    static public function FetchFromGoogle($to, $from){
+    static public function FetchFromGoogle(){
         $trans_command = new Command();
         $trans_command->option('i')
             ->aka('in')
             ->describedAs("Input Language")
             ->required()
-            ->default("en-gb");
+            ->default("en");
         $trans_command->option('o')
             ->aka('out')
-            ->describedAs("Output Language")
-            ->required();
+            ->describedAs("Output Language");
 
-        echo "Translate from {$trans_command['in']} to {$trans_command['out']}\n";
+        echo "Translate from {$trans_command['in']} to " . (isset($trans_command['out'])?$trans_command['out'] : 'all') . "\n";
+
+        $tr = new TranslateClient();
+        $tr->setSource($trans_command['in']);
+        $tr->setTarget($trans_command['out']);
+        $langauges = Language::search()->exec();
+        var_dump($langauges);
+        $untranslated_phrases = PhraseReplacement::search()->where('is_translated', 'No')->exec();
+        foreach($untranslated_phrases as $i => $phrase){
+            /* @var $phrase PhraseReplacement */
+            /* @var $original PhraseOriginal */
+            /* @var $langauge Language */
+            $langauge = $langauges[$phrase->language_id];
+            $translator = $tr->setTarget($langauge->code);
+            $original = PhraseOriginal::search()->where('original_id', $phrase->original_id)->execOne();
+            $output = $translator->translate($original->value);
+            $phrase->value = $output;
+            $phrase->is_translated = "Yes";
+            $phrase->save();
+        }
     }
 }
 

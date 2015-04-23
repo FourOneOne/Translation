@@ -33,4 +33,4 @@ require ACTIVERECORDMIGRATIONS_COMPOSER_INSTALL;
 $bootstrap = dirname(ACTIVERECORDMIGRATIONS_COMPOSER_INSTALL) . "/../bootstrap.php";
 require $bootstrap;
 
-\Thru\ActiveRecordMigrations\Migrator::Main();
+\Thru\Translation\Translation::FetchFromGoogle();

@@ -2,5 +2,5 @@
 composer.lock
 composer.phar
 .c9revisions
-
 /vendor/
+/build/

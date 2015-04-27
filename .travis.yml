@@ -4,8 +4,9 @@ php: 5.4
 
 before_script :
   - composer install
-  - mysql -e 'create database active_record_test;'
+  - mysql -e 'create database translations_test;'
   - mysql -e "use mysql; SET PASSWORD FOR 'travis'@'localhost' = PASSWORD('travis'); FLUSH PRIVILEGES;"
+  - ./vendor/bin/ar_migrate -i
 
 after_script:
   - CODECLIMATE_REPO_TOKEN="c0b16bb2db866436407181b65fc9371a2ee4ea3004038b62e2a1a083bb1a4479" vendor/bin/test-reporter --stdout > codeclimate.json

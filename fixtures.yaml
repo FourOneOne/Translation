@@ -1,0 +1,4 @@
+models:
+  - Thru\Translation\Models\Language
+  - Thru\Translation\Models\PhraseOriginal
+  - Thru\Translation\Models\PhraseReplacement

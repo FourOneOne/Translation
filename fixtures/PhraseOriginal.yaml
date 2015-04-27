@@ -1,0 +1,50 @@
+-
+    original_id: 1
+    language_id: 1
+    value: Hi
+    created_at: '2015-04-27 18:11:37'
+-
+    original_id: 2
+    language_id: 1
+    value: Hello
+    created_at: '2015-04-27 18:11:37'
+-
+    original_id: 3
+    language_id: 1
+    value: 'Good Morning'
+    created_at: '2015-04-27 18:11:37'
+-
+    original_id: 4
+    language_id: 1
+    value: 'Good Afternoon'
+    created_at: '2015-04-27 18:11:37'
+-
+    original_id: 5
+    language_id: 1
+    value: Welcome!
+    created_at: '2015-04-27 18:11:38'
+-
+    original_id: 6
+    language_id: 1
+    value: 'How are you?'
+    created_at: '2015-04-27 18:11:38'
+-
+    original_id: 7
+    language_id: 1
+    value: 'I''m fine, thanks!'
+    created_at: '2015-04-27 18:11:38'
+-
+    original_id: 8
+    language_id: 1
+    value: 'And you?'
+    created_at: '2015-04-27 18:11:38'
+-
+    original_id: 9
+    language_id: 1
+    value: Good
+    created_at: '2015-04-27 18:11:38'
+-
+    original_id: 10
+    language_id: 1
+    value: 'My hovercraft is full of eels'
+    created_at: '2015-04-27 18:11:38'

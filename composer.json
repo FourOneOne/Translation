@@ -23,13 +23,20 @@
     "nategood/commando": "*"
   },
   "require-dev": {
-    "thru.io/active_record_migrations": "dev-master"
+    "thru.io/active_record_migrations": "dev-master",
+    "codeclimate/php-test-reporter": "dev-master",
+    "fzaninotto/faker": "1.5.*@dev"
   },
   "autoload"   : {
     "psr-4": {
       "Thru\\Translation\\": "src"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Thru\\Translation\\Test\\": "tests/"
+    }
+  }
   "bin": [
     "translator"
   ]

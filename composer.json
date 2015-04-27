@@ -36,7 +36,7 @@
     "psr-4": {
       "Thru\\Translation\\Test\\": "tests/"
     }
-  }
+  },
   "bin": [
     "translator"
   ]

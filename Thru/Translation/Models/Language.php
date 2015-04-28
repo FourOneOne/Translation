@@ -16,5 +16,5 @@ class Language extends ActiveRecord{
     public $language_id;
     public $name;
     public $code;
-    public $completeness;
+    public $completeness = 0;
 }

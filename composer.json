@@ -10,6 +10,10 @@
   "require"    : {
     "thru.io/active_record": "0.2.*"
   },
+  "require-dev": {
+    "fzaninotto/faker": "1.5.*@dev",
+    "phpunit/phpunit": "4.6.*"
+  },
   "autoload"   : {
     "psr-0": {
       "Thru\\Translation\\": ""

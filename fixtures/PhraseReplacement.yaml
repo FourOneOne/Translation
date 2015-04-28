@@ -72,6 +72,6 @@
     translation_id: 11
     original_id: 11
     language_id: 2
-    value: Bonjour :name
+    value: 'Bonjour :name'
     created_at: '2015-04-27 18:11:37'
     is_translated: 'Yes'

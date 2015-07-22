@@ -10,7 +10,8 @@ use \Thru\ActiveRecord\ActiveRecord;
  * @var $code string(8)
  * @var $completeness INTEGER
  */
-class Language extends ActiveRecord{
+class Language extends ActiveRecord
+{
     protected $_table = "translation_languages";
 
     public $language_id;

@@ -16,28 +16,32 @@ class Translation
     static private $target_language = null;
     static private $instance;
 
-    static public function getInstance(){
-        if(!self::$instance instanceof Translation){
+    static public function getInstance()
+    {
+        if(!self::$instance instanceof Translation) {
             self::$instance = new Translation();
         }
         return self::$instance;
     }
 
-    static public function configure_original_language($language_code){
+    static public function configure_original_language($language_code)
+    {
         self::$original_language = $language_code;
         return true;
     }
 
-    static public function configure_target_language($language_code){
+    static public function configure_target_language($language_code)
+    {
         self::$target_language = $language_code;
         return true;
     }
 
-    public function translate($string, $replacements = array()){
+    public function translate($string, $replacements = array())
+    {
 
-        if(self::$target_language !== null && self::$original_language != self::$target_language){
+        if(self::$target_language !== null && self::$original_language != self::$target_language) {
             $originalLanguage = translation_language_model::search()->where('code', self::$original_language)->execOne();
-            if(!$originalLanguage){
+            if(!$originalLanguage) {
                 $originalLanguage = new translation_language_model();
                 $originalLanguage->code = self::$original_language;
                 $originalLanguage->completeness = 0;
@@ -45,7 +49,7 @@ class Translation
                 $originalLanguage->save();
             }
             $targetLanguage = translation_language_model::search()->where('code', self::$target_language)->execOne();
-            if(!$targetLanguage){
+            if(!$targetLanguage) {
                 $targetLanguage = new translation_language_model();
                 $targetLanguage->code = self::$target_language;
                 $targetLanguage->completeness = 0;
@@ -84,7 +88,8 @@ class Translation
         return $string;
     }
 
-    static public function FetchFromGoogle(){
+    static public function FetchFromGoogle()
+    {
         $trans_command = new Command();
         $trans_command->option('i')
             ->aka('in')
@@ -117,6 +122,7 @@ class Translation
     }
 }
 
-function t($string, $replacements = array()){
+function t($string, $replacements = array())
+{
     return Translation::getInstance()->translate($string, $replacements);
 }

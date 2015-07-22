@@ -12,7 +12,8 @@ use \Thru\ActiveRecord\ActiveRecord;
  * @var $created_at DATETIME
  * @var $is_translated ENUM('Yes','No')
  */
-class PhraseReplacement extends ActiveRecord{
+class PhraseReplacement extends ActiveRecord
+{
     protected $_table = "translation_replacements";
     public $translation_id;
     public $original_id;

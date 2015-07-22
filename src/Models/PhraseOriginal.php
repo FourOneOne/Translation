@@ -10,7 +10,8 @@ use \Thru\ActiveRecord\ActiveRecord;
  * @var $value TEXT
  * @var $created_at DATETIME
  */
-class PhraseOriginal extends ActiveRecord{
+class PhraseOriginal extends ActiveRecord
+{
     protected $_table = "translation_originals";
     public $original_id;
     public $language_id;

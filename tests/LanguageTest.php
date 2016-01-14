@@ -1,5 +1,6 @@
 <?php
 namespace Thru\Translation\Test;
+
 use Thru\Translation\Translation;
 use Thru\Translation\Models\Language;
 
@@ -7,7 +8,7 @@ class LanguageTest extends BaseTest
 {
 
     /**
- * @var $tr Translation 
+ * @var $tr Translation
 */
     private $tr;
 

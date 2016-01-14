@@ -16,21 +16,21 @@ class Translation
     static private $target_language = null;
     static private $instance;
 
-    static public function getInstance()
+    public static function getInstance()
     {
-        if(!self::$instance instanceof Translation) {
+        if (!self::$instance instanceof Translation) {
             self::$instance = new Translation();
         }
         return self::$instance;
     }
 
-    static public function configure_original_language($language_code)
+    public static function configure_original_language($language_code)
     {
         self::$original_language = $language_code;
         return true;
     }
 
-    static public function configure_target_language($language_code)
+    public static function configure_target_language($language_code)
     {
         self::$target_language = $language_code;
         return true;
@@ -39,9 +39,9 @@ class Translation
     public function translate($string, $replacements = array())
     {
 
-        if(self::$target_language !== null && self::$original_language != self::$target_language) {
+        if (self::$target_language !== null && self::$original_language != self::$target_language) {
             $originalLanguage = translation_language_model::search()->where('code', self::$original_language)->execOne();
-            if(!$originalLanguage) {
+            if (!$originalLanguage) {
                 $originalLanguage = new translation_language_model();
                 $originalLanguage->code = self::$original_language;
                 $originalLanguage->completeness = 0;
@@ -49,14 +49,14 @@ class Translation
                 $originalLanguage->save();
             }
             $targetLanguage = translation_language_model::search()->where('code', self::$target_language)->execOne();
-            if(!$targetLanguage) {
+            if (!$targetLanguage) {
                 $targetLanguage = new translation_language_model();
                 $targetLanguage->code = self::$target_language;
                 $targetLanguage->completeness = 0;
                 $targetLanguage->name = "Untitled Language " . self::$target_language;
                 $targetLanguage->save();
             }
-            if($targetLanguage->language_id != $originalLanguage->language_id) {
+            if ($targetLanguage->language_id != $originalLanguage->language_id) {
                 $originalPhrase = translation_original_model::search()->where('value', $string)->execOne();
                 if (!$originalPhrase) {
                     $originalPhrase = new translation_original_model();
@@ -80,7 +80,7 @@ class Translation
         }
 
         // Swap in the variables
-        foreach($replacements as $key => $value){
+        foreach ($replacements as $key => $value) {
             $string = str_replace($key, $value, $string);
         }
 
@@ -88,7 +88,7 @@ class Translation
         return $string;
     }
 
-    static public function FetchFromGoogle()
+    public static function FetchFromGoogle()
     {
         $trans_command = new Command();
         $trans_command->option('i')
@@ -107,7 +107,7 @@ class Translation
         $tr->setTarget($trans_command['out']);
         $langauges = Language::search()->exec();
         $untranslated_phrases = PhraseReplacement::search()->where('is_translated', 'No')->exec();
-        foreach($untranslated_phrases as $i => $phrase){
+        foreach ($untranslated_phrases as $i => $phrase) {
             /* @var $phrase PhraseReplacement */
             /* @var $original PhraseOriginal */
             /* @var $langauge Language */

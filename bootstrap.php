@@ -12,4 +12,3 @@ $database = new \Thru\ActiveRecord\DatabaseLayer(
     'db_database' => 'translations_test'
     )
 );
-

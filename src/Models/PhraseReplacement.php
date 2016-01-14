@@ -1,5 +1,6 @@
 <?php
 namespace Thru\Translation\Models;
+
 use \Thru\ActiveRecord\ActiveRecord;
 
 /**

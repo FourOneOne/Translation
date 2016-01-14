@@ -25,6 +25,7 @@
   "require-dev": {
     "thru.io/active_record_migrations": "dev-master",
     "codeclimate/php-test-reporter": "dev-master",
+    "squizlabs/php_codesniffer": "*",
     "fzaninotto/faker": "1.5.*@dev"
   },
   "autoload"   : {

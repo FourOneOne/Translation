@@ -24,13 +24,13 @@ class Translation
         return self::$instance;
     }
 
-    public static function configure_original_language($language_code)
+    public static function setOriginalLanguage($language_code)
     {
         self::$original_language = $language_code;
         return true;
     }
 
-    public static function configure_target_language($language_code)
+    public static function setTargetLanguage($language_code)
     {
         self::$target_language = $language_code;
         return true;
@@ -88,7 +88,7 @@ class Translation
         return $string;
     }
 
-    public static function FetchFromGoogle()
+    public static function fetchFromGoogle()
     {
         $trans_command = new Command();
         $trans_command->option('i')

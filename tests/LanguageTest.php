@@ -16,8 +16,8 @@ class LanguageTest extends BaseTest
     {
         parent::setUp();
         $this->tr = Translation::getInstance();
-        $this->tr->configure_original_language('en');
-        $this->tr->configure_target_language('fr');
+        $this->tr->setOriginalLanguage('en');
+        $this->tr->setTargetLanguage('fr');
     }
 
     public function testTranslateEnToFr()
